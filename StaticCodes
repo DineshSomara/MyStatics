@@ -1,0 +1,892 @@
+
+HTML PART:
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="my-projects-bg-container" id="sectionmyprojectspage">
+        <div class="my-projects-card">
+            <img class="my-projects-main-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/software-developer-img.png" />
+            <h1 class="my-projects-main-heading">My Projects</h1>
+            <p class="my-projects-description">These are my Static Websites that I have developed using HTML, CSS and Bootstrap </p>
+        </div>
+        <div class="d-flex flex-column justify-content-center">
+            <div class="d-flex flex-row justify-content-center">
+                <div onclick="display('sectionadvancedtechnologies')">
+                    <img class="my-projects-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/advanced-technologies-img.png">
+                </div>
+                <div onclick="display('sectiondiwali')">
+                    <img class="my-projects-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/diwali-img.png">
+                </div>
+                <div onclick="display('sectionfoundations')">
+                    <img class="my-projects-image" src="https://assets.ccbp.in/frontend/static-website/foundations-bg.png">
+                </div>
+            </div>
+
+            <div class="d-flex flex-row justify-content-center">
+                <div onclick="display('sectionfoodpage')">
+                    <img class="my-projects-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/food-img.png">
+                </div>
+                <div onclick="display('sectionnewspage')">
+                    <img class="my-projects-image " src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/news-paper-img.png">
+                </div>
+                <div onclick="display('sectionconferencehomepage')">
+                    <img class="my-projects-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/conference-img.png">
+                </div>
+            </div>
+
+            <div class="d-flex flex-row justify-content-center">
+                <div onclick="display('sectioncovid19')">
+                    <img class="my-projects-image" src="data:image/jpeg;base64,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">
+                </div>
+                <div onclick="display('sectiongoainfo')">
+                    <img class="my-projects-image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-c3-img.png">
+                </div>
+                <div onclick="display('sectionshoppingwebsites')">
+                    <img class="my-projects-image" src="https://assets.ccbp.in/frontend/static-website/stores-img.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionadvancedtechnologies">
+        <div class="tech-bg-container d-flex flex-column justify-content-end">
+            <div class="tech-card ">
+                <h1 class="tech-card-heading">Advanced Technology</h1>
+                <p class="tech-card-description">Machinery and equipment developed from the application of scientific knowledge. </p>
+                <button class="tech-button button-color-2">Learn more</button>
+                <button class="tech-button button-color-1" onclick="display('sectionmyprojectspage')">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionfoundations">
+        <div class="Foundations-bg-container d-flex flex-column justify-content-end">
+            <div class=" Foundations-card">
+                <h1 class="Foundations-heading">Foundations</h1>
+                <p class="Description">Learn courses that will help you move forward in your career</p>
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="PL-card d-flex flex-column justify-content-center">
+                            <img class="PL-image" src="https://assets.ccbp.in/frontend/static-website/foundations-python-img.png" />
+                            <h5>Python</h5>
+                        </div>
+                        <div class=" PL-card d-flex flex-column justify-content-center">
+                            <img class="PL-image" src="https://assets.ccbp.in/frontend/static-website/foundations-javascript-img.png" />
+                            <h5>Javascript</h5>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="PL-card d-flex flex-column justify-content-center">
+                            <img class="PL-image " src="https://assets.ccbp.in/frontend/static-website/foundations-html5-img.png" />
+                            <h5>HTML5</h5>
+                        </div>
+                        <div class="PL-card d-flex flex-column justify-content-center">
+                            <img class="PL-image" src="https://assets.ccbp.in/frontend/static-website/foundations-java-img.png" />
+                            <h5>Java</h5>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectiondiwali">
+        <div class="diwali-top-section d-flex flex-row justify-content-center">
+            <h1 class="diwali-top-section-heading">
+                Celebrate Diwali with your friends
+            </h1>
+        </div>
+        <div class="diwali-bottom-section">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="diwali-card-item">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/lamp-img.png" class="diwali-card-image" />
+                    <h1 class="diwali-card-name">Diwali Air Balloon</h1>
+                    <p class="diwali-card-price">Rs 369</p>
+                </div>
+
+                <div class="diwali-card-item">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/diya-img.png" class="diwali-card-image" />
+                    <h1 class="diwali-card-name">Diwali - Lamp</h1>
+                    <p class="diwali-card-price">Rs 50</p>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="diwali-card-item">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/firework-img.png" class="diwali-card-image" />
+                    <h1 class="diwali-card-name">Sparklers</h1>
+                    <p class="diwali-card-price">Rs 150</p>
+                </div>
+
+                <div class="diwali-card-item">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/firecracker-img.png" class="diwali-card-image" />
+                    <h1 class="diwali-card-name">Fire Cracker</h1>
+                    <p class="diwali-card-price">Rs 560</p>
+                </div>
+            </div>
+            <button class="btn btn-primary">View More</button>
+            <div class="button3">
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionfoodpage">
+        <div class="foodorder-image d-flex flex-column justify-content-end">
+            <div class="foodorder-card ">
+                <h1 class="main-heading">Happy Meals</h1>
+                <p class="paragraph">Discover the best foods over the 1,000 restaurants</p>
+                <button class="button1 btn btn-light">Book Now</button>
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionnewspage">
+        <div class="news-bg-container d-flex flex-column justify-content-end">
+            <div class="news-card">
+                <p class="news-card-light-heading">NEWS OF THE DAY</p>
+                <h1 class="news-card-main-heading">iB Cricket announces world's first Virtual Reality Cricket League</h1>
+                <p class="news-description">
+                    iB Cricket and Viu together have announced the World's first virtual
+                    reality cricket league featuring 12 international cricketers, who will
+                    be competing against each other for the iB Cricket Super Over League
+                    title in Mumbai. Iconic cricketers like Virender Sehwag, Suresh Raina,
+                    Brendon McCullum will be competing in the league.
+                </p>
+                <button class="news-button">Read more</button>
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-page-bg-container" id="sectionconferencehomepage">
+        <img class="image" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/conference-img.png" />
+        <div class="home-page-card">
+            <h1 class="home-main-heading">The Things Conference</h1>
+            <p class="home-page-description">Redefining the future of IoT with LoRaWAN</p>
+            <button class="btn btn-primary" onclick="display('sectionconferencedetailspage')">Know more</button>
+        </div>
+    </div>
+
+    <div class="details-page-bg-container" id="sectionconferencedetailspage">
+        <div class="embed-responsive embed-responsive-16by9 ">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vKJ6nXE_6Hc?rel=0" allowfullscreen></iframe>
+        </div>
+        <div class="details-page-card">
+            <h1 class="details-page-main-heading">The Things Conference</h1>
+            <P class="details-page-main-description">Join Asia's Largesh Conference on LoRaWAN</P>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="details-page-sub-card">
+                    <h1 class="sub-heading">1400++</h1>
+                    <p class="sub-description">Attendees</p>
+                </div>
+
+                <div class="details-page-sub-card">
+                    <h1 class="sub-heading">100++</h1>
+                    <p class="sub-description">Workshops</p>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="details-page-sub-card">
+                    <h1 class="sub-heading">120++</h1>
+                    <p class="sub-description">Speakers</p>
+                </div>
+
+                <div class="details-page-sub-card">
+                    <h1 class="sub-heading">10++</h1>
+                    <p class="sub-description">Countries</p>
+                </div>
+            </div>
+            <div class="button" onclick="display('sectionconferencehomepage')">
+                <button class="btn btn-primary">Back</button>
+            </div>
+            <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back to home</button>
+        </div>
+    </div>
+
+    <div id="sectioncovid19">
+        <div class="covid-bg-container">
+            <div class="covid-first-card d-flex flex-row justify-content-center">
+                <div>
+                    <p class="covid-first-card-heading">All you need to know about COVID-19</p>
+                    <button class="button2">
+                        <a class="color-white" target="_blank" href="https://www.google.com/search?q=covid19&sxsrf=APq-WBuyHUXpis3EPsyNy7i796-kL9Bk8A%3A1646019630355&ei=LkQcYsKaFYiF4t4Pr9-tSA&ved=0ahUKEwjC6fD6vKH2AhWIgtgFHa9vCwkQ4dUDCA4&uact=5&oq=covid19&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyCAgAEIAEELEDMgkIABCxAxAKEEMyCAgAEIAEEMkDMgUIABCSAzIFCAAQgAQyCggAEIAEELEDEAoyBQgAEIAEMgoIABCxAxCDARAKMgUIABCABEoECEEYAUoECEYYAFDiBFjiBGCPB2gBcAB4AIABsgGIAbIBkgEDMC4xmAEAoAEBwAEB&sclient=gws-wiz">Know more </a>
+                    </button>
+                </div>
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/medicalcare-img.png" />
+            </div>
+
+            <div class="covid-card-container d-flex flex-row justify-content-center">
+                <img class="covid-image  d-flex flex-column justify-content-center " src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/coronavirus-img.png" />
+                <div class="padding-heading-p d-flex flex-column justify-content-center">
+                    <h1 class="covid-card-heading">COVID-19 Test</h1>
+                    <p class="covid-card-description">If you think you have been exposed to novel coronavirus (COVID-19)...more</p>
+                </div>
+            </div>
+
+            <h1 class="covid-sub-heading">Symptoms</h1>
+
+            <div class="d-flex flex-row justify-content-center">
+                <div class="symptoms-card cough-card-colour">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/coronavirus-img.png" class="d-flex flex-coloumn justify-content-center" />
+                    <div class="symptoms-card-description">Dry Cough</div>
+                </div>
+
+                <div class="symptoms-card fever-card-color">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/fever-img.png" class="d-flex flex-coloumn justify-content-center" />
+                    <div class="symptoms-card-description">Dry Cough</div>
+                </div>
+
+                <div class="symptoms-card headache-card-color">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/fever-img.png" class="d-flex flex-coloumn justify-content-center" />
+                    <div class="symptoms-card-description">Dry Cough</div>
+                </div>
+            </div>
+
+            <h1 class="covid-sub-heading">Videos</h1>
+
+            <div class="covid-card-container-bottom d-flex flex-row justify-content-center">
+                <img class="covid-image d-flex flex-column justify-content-center  " src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/doctor-img.png" />
+                <div class="padding-heading-p d-flex flex-column justify-content-center">
+                    <h1 class="covid-card-heading">To prevent the spread of ...</h1>
+                    <p class="covid-card-description">If you think you have been exposed to novel coronavirus (COVID-19)</p>
+                    <button class="button2">
+                        Watch Video
+                    </button>
+                </div>
+            </div>
+            <div class="button3">
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+    <div id="sectiongoainfo">
+        <div class="goa-bg-container">
+            <h1 class="goa-heading">Goa</h1>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active "></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-c1-img.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-c2-img.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-c3-img.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
+            <div class="goa-about-card">
+                <h1 class="goa-heading">About</h1>
+                <p class="goa-about-description">Goa is known for its striking landscape, famous beaches in India, astounding monuments and churches and bustling Goa nightlife. Goa is one of the most visited tourist places inIndia, especially on weekends, as it is not very far from Mumbai and having Panaji as its capital and vasco de gama as the largest city. It attracts a large number of tourists from all over the world, round the year. </p>
+            </div>
+
+            <div class="goa-pictures-card">
+                <h1 class="goa-heading">More Pictures</h1>
+                <div class="d-flex flex-row justify-content-center">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-more1-img.png " class="goa-pictures-margin" />
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-more2-img.png" class="goa-pictures-margin" />
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/goa-more3-img.png" class="goa-pictures-margin" />
+                </div>
+            </div>
+
+            <div class="goa-videos-card">
+                <h1 class="goa-heading">Videos</h1>
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="embed-responsive embed-responsive-16by9 goa-video-properties">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NFalCkZAClY?rel=0" allowfullscreen></iframe>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9 goa-video-properties">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4irzfMfTmM8?rel=0" allowfullscreen></iframe>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9 goa-video-properties">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OJu0gjzsvQE?rel=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="button3">
+                <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+            </div>
+        </div>
+    </div>
+    <div id="sectionshoppingwebsites">
+        <div class="shoping-bg-container">
+            <div class="top-card d-flex flex-row ">
+                <h1 class="main-heading">Shop in your favorite stores</h1>
+            </div>
+            <div class="bottom-card">
+                <h5 class="select-options-heading">Select your store with one click</h5>
+                <div class="Website-container d-flex flex-row">
+                    <img class="logos" src="https://assets.ccbp.in/frontend/static-website/amazon-logo-img.png">
+                    <div class="website-information d-flex flex-column">
+                        <a href="https://www.amazon.in/" target="_blank" class="shopping-website">Amazon</a>
+                        <p class="description">Online Shopping Free Shipping & Cash on Delivery ...</p>
+                    </div>
+                </div>
+                <div class="Website-container d-flex flex-row">
+                    <img class="logos" src="https://assets.ccbp.in/frontend/static-website/ikea-logo-img.png">
+                    <div class="website-information d-flex flex-column">
+                        <a href="https://www.ikea.com/in/en/" target="_blank" class="shopping-website">IKEA</a>
+                        <p class="description">Explore our Furniture & home furnishing range. IKEA is a global leader...</p>
+                    </div>
+                </div>
+                <div class="Website-container d-flex flex-row">
+                    <img class="logos" src="https://assets.ccbp.in/frontend/static-website/bewakoof-logo-img.png">
+                    <div class="website-information d-flex flex-column">
+                        <a href="https://www.bewakoof.com/" target="_blank" class="shopping-website">Bewakoof</a>
+                        <p class="description">A life Fashion Brand That Offers Creative and Distinctive Fashion...</p>
+                    </div>
+                </div>
+                <div class="Website-container d-flex flex-row">
+                    <img class="logos" src="https://assets.ccbp.in/frontend/static-website/flipkart-logo-img.png">
+                    <div class="website-information d-flex flex-column">
+                        <a href="https://www.flipkart.com/" target="_blank" class="shopping-website">Flipkart</a>
+                        <p class="description">Wide Range of Genuine PRoducts, Easy Returns, Cash on delivery, Browse Now...</p>
+                    </div>
+                </div>
+                <div class="button3">
+                    <button class="btn btn-secondary" onclick="display('sectionmyprojectspage')">back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+CSS PART:
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+.my-projects-main-image {
+    height: 200px;
+    width: 200px;
+}
+
+.my-projects-card {
+    text-align: center;
+}
+
+.my-projects-main-heading {
+    font-size: 35px;
+    color: #183b56;
+}
+
+.my-projects-description {
+    color: #616e7c;
+}
+
+.my-projects-image {
+    height: 150px;
+    width: 230px;
+    margin: 20px;
+    border-radius: 4px;
+}
+
+.tech-bg-container {
+    background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/arvrbg.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+.tech-card {
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 20px;
+}
+
+.tech-card-heading {
+    color: #5752ab;
+    font-size: 30px;
+    font-family: 'Bree Serif';
+}
+
+.tech-card-description {
+    color: #323f4b;
+    font-family: 'Roboto';
+}
+
+.tech-button {
+    border-color: #d7dfe9;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    width: 126px;
+    height: 38px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.button-color-1 {
+    background-color: #ffffff;
+    color: #171f46;
+}
+
+.button-color-2 {
+    background-color: #5752ab;
+    color: #ffffff;
+}
+
+.Foundations-bg-container {
+    background-image: url("https://assets.ccbp.in/frontend/static-website/foundations-bg.png");
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Roboto';
+}
+
+.Foundations-card {
+    background-color: white;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.PL-image {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    margin-left: 1px;
+}
+
+.PL-card {
+    margin: 20px;
+    border-width: 2px;
+    border-color: #cbd2d9;
+    padding: 15px;
+    text-align: center;
+}
+
+.Foundations-heading {
+    margin-top: 30px;
+}
+
+.diwali-top-section {
+    background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/diwali-bg.png");
+    height: 30vh;
+    background-size: cover;
+}
+
+.diwali-top-section-heading {
+    color: white;
+    font-family: "Caveat";
+    font-size: 36px;
+    width: 200px;
+    padding: 20px;
+}
+
+.diwali-bottom-section {
+    text-align: center;
+    background-color: #e6f6ff;
+    padding: 15px;
+}
+
+.diwali-card-item {
+    text-align: center;
+    background-color: white;
+    width: 140px;
+    border-radius: 9px;
+    padding: 16px;
+    margin: 35px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.diwali-card-image {
+    height: 64px;
+    width: 64px;
+}
+
+.diwali-card-name {
+    color: #616e7c;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.diwali-card-price {
+    color: #323f4b;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.foodorder-image {
+    background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/foodbg.png");
+    height: 100vh;
+    background-size: cover;
+}
+
+.foodorder-card {
+    background-color: #f6c56e;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 30px;
+    color: #323f4b;
+}
+
+.main-heading {
+    font-family: "Bree Serif";
+}
+
+.paragraph {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.button1 {
+    font-family: "Roboto";
+}
+
+.news-bg-container {
+    background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/newsbg.png");
+    height: 100vh;
+    background-size: cover;
+}
+
+.news-card {
+    background-color: white;
+    font-family: 'Roboto';
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 25px;
+}
+
+
+.news-card-light-heading {
+    color: #7b8794;
+    font-size: 12px;
+}
+
+.news-card-main-heading {
+    color: #323f4b;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.news-description {
+    color: #7b8794;
+    font-size: 12px;
+}
+
+.news-button {
+    background-color: #323f4b;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    width: 109px;
+    height: 38px;
+    border-width: 0px;
+    border-radius: 8px;
+}
+
+.home-page-bg-container {
+    font-family: 'Roboto';
+    padding: 10px;
+    text-align: center;
+}
+
+.image {
+    background-size: cover;
+    height: 400px;
+    width: 500px;
+    padding: 30px;
+}
+
+.home-main-heading {
+    font-weight: 500;
+    color: #183b56;
+    margin: 20px;
+}
+
+.home-page-card {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-page-description {
+    color: #5a7184;
+    margin: 30px;
+}
+
+.details-page-bg-container {
+    font-family: 'Roboto';
+    text-align: center;
+    padding: 10px;
+}
+
+
+.button {
+    text-align: center;
+}
+
+.details-page-sub-card {
+    margin: 25px;
+    text-align: center;
+}
+
+.sub-heading {
+    color: #183b56;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.sub-description {
+    color: #5a7184;
+}
+
+.details-page-main-description {
+    color: #5a7184;
+}
+
+.details-page-main-heading {
+    color: #183b56;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+
+.button {
+    margin-bottom: 15px;
+}
+
+.covid-bg-container {
+    font-family: 'Roboto';
+    color: #ffffff;
+}
+
+.covid-first-card {
+    padding: 15px;
+}
+
+.covid-first-card-heading {
+    font-size: 20px;
+    font-weight: 100;
+    color: #707070;
+}
+
+.covid-card-container {
+    background-color: #0967d219;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.covid-image {
+    height: 56px;
+    width: 56px;
+    margin-top: 63px;
+}
+
+.covid-card-heading {
+    color: #323f4b;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.padding-heading-p {
+    padding: 50px;
+}
+
+.covid-card-description {
+    color: #707070;
+    font-weight: 500;
+}
+
+.covid-sub-heading {
+    color: #707070;
+    font-size: 20px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.symptoms-card {
+    padding: 15px;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 18px;
+}
+
+.cough-card-colour {
+    background-color: #3ebd93;
+}
+
+.fever-card-color {
+    background-color: #e668a7;
+}
+
+.headache-card-color {
+    background-color: #a368fc;
+}
+
+.symptoms-card-description {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+.covid-card-container-bottom {
+    background-color: #e12d3919;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.button2 {
+    background-color: #0967d2;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    height: 30px;
+    width: 90px;
+    border-width: 0;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    text-align: center;
+    padding: 6px;
+    margin-left: 10px;
+}
+
+.color-white {
+    color: white;
+}
+
+.button3 {
+    text-align: center;
+    margin: 8px;
+}
+
+.goa-bg-container {
+    font-family: 'Roboto';
+}
+
+.goa-heading {
+    color: #323f4b;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.goa-about-card {
+    padding: 30px;
+}
+
+.goa-heading {
+    text-align: center;
+    font-size: 40px;
+}
+
+.goa-about-description {
+    color: #9aa5b1;
+}
+
+.goa-pictures-card {
+    padding: 30px;
+}
+
+.goa-pictures-margin {
+    margin: 7px;
+}
+
+.goa-video-properties {
+    margin: 7px;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.goa-videos-card {
+    padding: 30px;
+}
+
+.carouselpadding {
+    padding: 170px;
+    margin: 0px;
+}
+
+.shoping-bg-container {
+    background-color: #894bca;
+}
+
+.main-heading {
+    color: white;
+}
+
+.top-image {
+    height: 200px;
+    margin-left: 0px;
+}
+
+.top-card {
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin-left: 0px;
+}
+
+.main-heading {
+    padding: 30px;
+}
+
+.select-options-heading {
+    color: #f780c3;
+    padding: 30px;
+}
+
+.bottom-card {
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.logos {
+    height: 70px;
+}
+
+.website-information {
+    margin-left: 20px;
+}
+
+.Website-container {
+    margin: 20px;
+}
+
+.shopping-website {
+    font-size: 30px;
+}
+
+
